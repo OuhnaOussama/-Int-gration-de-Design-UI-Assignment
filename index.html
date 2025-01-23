@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Fraunces:opsz,wght@9..144,800&display=swap" rel="stylesheet">
+        <script>
+             tailwind.config = {
+              theme: {
+                extend: {
+                  fontFamily: { 'Barlow': ['Fraunces', 'Barlow']},
+                  colors: {
+                    primary : "#83888F",
+                    secondary: "#0E8784",
+                    gray: "#333D4B",
+                    bg: "#FAF8F6",
+                    white: "#FEFCF7"
+                  },
+                },
+              },
+            };
+        </script>
+        <script src="main.js"></script>
+        <style>
+          @media (max-width: 767px) {
+              .mobile-menu {
+                  display: none;
+              }
+              .mobile-menu.open {
+                  display: flex;
+              }
+          }
+      </style>
+      <style>
+        .slider-container { overflow: hidden; width: 100%; }
+        #slider { 
+            display: flex; 
+            transition: transform 0.3s ease-in-out; 
+        }
+        .slider-item {
+            flex-shrink: 0;
+            width: 100%;
+        }
+        @media (min-width: 640px) {
+            .slider-item { width: calc(100% / 3); }
+        }
+    </style>
+    </head>
+    <title>Document</title>
+</head>
+<body>
+  <div class="flex overflow-hidden flex-col bg-white">
+    <div class="flex relative flex-col items-center px-20 pt-7 pb-16 w-full min-h-[1033px] max-md:px-5 max-md:max-w-full">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/e66fdabd1209d3979847004663f2b95405ccf7b7481aa1f784cb90f6e2174044?apiKey=334f6edcddf34783bae13f34603f9f9c&" alt="Modern living room with stylish furniture" class="object-cover absolute inset-0 size-full" />
+      <nav class="flex relative text-white flex-wrap gap-5 justify-between w-full p-4 max-w-[1160px] max-md:max-w-full">
+        <a href="/" class="text-4xl font-bold" aria-label="FurniShop Home">FurniShop</a>
+        <button id="menuToggle" class="md:hidden">
+            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <div class="hidden md:flex gap-10 items-start text-base">
+            <a href="/" class="font-semibold">Home</a>
+            <a href="/about">About</a>
+            <a href="/features">Features</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <div id="mobileMenu" class="mobile-menu absolute top-full left-0 w-full bg-white shadow-lg md:hidden">
+            <div class="flex flex-col items-center py-4 space-y-4">
+                <a href="/" class="font-semibold">Home</a>
+                <a href="/about">About</a>
+                <a href="/features">Features</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+      <div class="flex relative z-10 flex-col justify-center items-center self-start px-2 mt-44 ml-3 w-9 h-9 rounded-full border border-solid bg-zinc-300 bg-opacity-20 border-zinc-300 max-md:mt-10 max-md:ml-2.5 max-md:hidden" aria-hidden="true">
+        <div class="flex shrink-0 w-full h-2.5 rounded-full bg-zinc-300 "></div>
+      </div>
+      <div class="flex relative flex-col mt-0 max-w-full text-center text-white w-[829px] max-md:mt-24">
+        <h1 class="text-6xl font-semibold leading-[77px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]">Creative Home Simpify your Furniture</h1>
+        <p class="self-center mt-8 text-xl tracking-wide leading-8 w-[627px] max-md:max-w-full">Do i have consent to record this meeting gain locaion, root-and-branch, review, nor game plan who's the goto</p>
+      </div>
+      <button class="relative gap-2.5 px-20 py-4 mt-16 text-xl font-semibold tracking-wide text-center text-white rounded-xl bg-neutral-200 bg-opacity-40 max-md:px-5 max-md:mt-10" aria-label="Shop Now">Shop Now</button>
+      <div class="flex relative z-10 flex-col justify-center items-center self-start px-2 mt-0 ml-28 w-9 h-9 rounded-full border border-solid bg-zinc-300 bg-opacity-20 border-zinc-300 max-md:ml-2.5 max-md:hidden" aria-hidden="true">
+        <div class="flex shrink-0 w-full h-2.5 rounded-full bg-zinc-300"></div>
+      </div>
+      <div class="flex relative flex-col mt-16 w-full max-w-[1240px] max-md:mt-10 max-md:max-w-full">
+        <div class="flex flex-col justify-center items-center self-end px-2  w-9 h-9 rounded-full border border-solid bg-zinc-300 bg-opacity-20 border-zinc-300 max-md:mr-2.5 max-md:hidden" aria-hidden="true">
+          <div class="flex shrink-0 w-full h-2.5 rounded-full bg-zinc-300 "></div>
+        </div>
+        <div class="flex flex-col justify-center items-center px-5 py-10 mt-10 w-full text-center text-white bg-teal-700 rounded-3xl">
+          <div class="flex flex-wrap gap-5 justify-between w-full max-w-[1018px]">
+            <div class="flex flex-col items-center">
+              <div class="text-4xl font-semibold leading-tight">7</div>
+              <div class="mt-1.5 text-xl tracking-wide leading-7">Year Experience</div>
+            </div>
+            <div class="shrink-0 my-auto w-px border border-white border-solid h-[100px]" aria-hidden="true"></div>
+            <div class="flex flex-col items-center">
+              <div class="text-4xl font-semibold leading-tight">2</div>
+              <div class="mt-1.5 text-xl tracking-wide leading-7">Opened in the country</div>
+            </div>
+            <div class="shrink-0 my-auto w-px border border-white border-solid h-[100px] max-md:hidden" aria-hidden="true"></div>
+            <div class="flex flex-col items-center">
+              <div class="text-4xl font-semibold leading-tight">10k+</div>
+              <div class="mt-1.5 text-xl tracking-wide leading-7">Furniture sold</div>
+            </div>
+            <div class="shrink-0 my-auto w-px border border-white border-solid h-[100px] max-md:mr-8" aria-hidden="true "></div>
+            <div class="flex flex-col items-center">
+              <div class="text-4xl font-semibold leading-tight">260+</div>
+              <div class="mt-1.5 text-xl tracking-wide leading-7">Variant Furniture</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="px-20 py-20 w-full bg-white max-md:px-5 max-md:max-w-full">
+      <div class="flex gap-5 max-md:flex-col">
+        <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/5b1a75aeb56717b4a18aeb0eb9cab59b0c2973b744f15927956a9b7e8871a95a?apiKey=334f6edcddf34783bae13f34603f9f9c&" alt="Aesthetic home interior design showcase" class="object-contain grow w-full rounded-none aspect-[1.25] max-md:mt-10 max-md:max-w-full" />
+        </div>
+        <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+          <div class="flex flex-col grow items-start mt-2.5 text-xl font-semibold text-zinc-800 max-md:mt-10 max-md:max-w-full">
+            <h2 class="text-4xl leading-[52px]">We Create your home more aestetic</h2>
+            <p class="mt-3.5 leading-9 max-md:max-w-full">Furnitre power is a software as services for multiperpose business management system,</p>
+            <div class="flex flex-col self-stretch pl-12 mt-10 leading-snug max-md:pl-5 max-md:max-w-full">
+              <h3 class="self-start">Valuation Services</h3>
+              <p class="mt-2 text-base leading-7 max-md:max-w-full">Sometimes features require a short description. This can be detailed description</p>
+              <h3 class="self-start mt-7">Development of Furniture Models</h3>
+              <p class="mt-2 text-base leading-7 max-md:mr-2.5 max-md:max-w-full">Sometimes features require a short description. This can be detailed description</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class=" flex flex-col pl-20 mt-16   max-md:pl-5 max-md:mt-10 max-md:max-w-full">
+      <div class="ml-2.5 w-full max-md:max-w-full">
+        <div class="flex gap-5 max-md:flex-col">
+          <div class="flex flex-col w-[19%] max-md:ml-0 max-md:w-full">
+            <div class="flex flex-col items-start self-stretch my-auto w-full text-base text-zinc-800 max-md:mt-10">
+              <h2 class="text-4xl font-semibold leading-[52px]">New In Store Now</h2>
+              <p class="self-stretch mt-24 tracking-normal leading-7 max-md:mt-10">Get the latest items immediately with promo prices</p>
+              <button class="flex gap-2.5 items-center mt-12 font-medium tracking-normal leading-relaxed max-md:mt-10" aria-label="Check all items">
+                <span class="self-stretch my-auto">Check All</span>
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/e14a50c2949451e37caa9aca6cd618a60db2766a1c0e02695d3a9b57b32d1019?apiKey=334f6edcddf34783bae13f34603f9f9c&" alt="" class="object-contain shrink-0 self-stretch my-auto aspect-[1.57] w-[22px]" aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+          <div class="slider-container mx-auto max-w-7xl px-4 py-8">
+            <div id="slider" class="flex gap-5">
+                <div class="slider-item relative">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/258eb4d4da406a9d5c32a11e745f82f82039afac27d2fce56dc446b12b552365" 
+                         alt="Chair Collection" 
+                         class="rounded-2xl w-full h-[500px] object-cover">
+                    <div class="absolute bottom-5 left-5 text-white text-3xl font-bold">Chair</div>
+                </div>
+                <div class="slider-item relative">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/56c34fcefe224c9f6d347ca4af6612b50302c6be5f4a38967e9afb1846498a4a" 
+                         alt="Bed Collection" 
+                         class="rounded-2xl w-full h-[500px] object-cover">
+                    <div class="absolute bottom-5 left-5 text-white text-3xl font-bold">Bed</div>
+                </div>
+                <div class="slider-item relative">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/d6fa8193b9a7caa32524032c6abd72ad172fbb0bdc386ef5d944929eb2f01a01" 
+                         alt="Cupboard Collection" 
+                         class="rounded-2xl w-full h-[500px] object-cover">
+                    <div class="absolute bottom-5 left-5 text-white text-3xl font-bold">Cupboard</div>
+                </div>
+                <div class="slider-item relative">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/838ea224a4910c330a43de9b02531a2803681b25d50f13361bc487f40c3d0901" 
+                         alt="Lighting Collection" 
+                         class="rounded-2xl w-full h-[500px] object-cover">
+                    <div class="absolute bottom-5 left-5 text-white text-3xl font-bold">Lighting</div>
+                </div>
+            </div>
+        </div>
+            
+            <div id="dots" class="flex justify-center mt-4 space-x-2">
+                <span class="dot h-3 w-3 bg-gray-400 rounded-full cursor-pointer" data-slide="0"></span>
+                <span class="dot h-3 w-3 bg-gray-400 rounded-full cursor-pointer" data-slide="1"></span>
+                <span class="dot h-3 w-3 bg-gray-400 rounded-full cursor-pointer" data-slide="2"></span>
+                <span class="dot h-3 w-3 bg-gray-400 rounded-full cursor-pointer" data-slide="3"></span>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="self-center mt-36 w-full ml-5 mr-5 max-md:mt-10 max-md:max-w-full">
+        <div class="flex gap-5 max-md:flex-col">
+          <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+            <div class="flex flex-col grow text-zinc-800 max-md:mt-10 max-md:max-w-full">
+              <div class="flex flex-col items-start pl-2.5 w-full max-md:max-w-full">
+                <h2 class="self-stretch text-4xl font-semibold leading-tight max-md:max-w-full">What people are saying about us</h2>
+                <div class="flex gap-5 mt-9 leading-none">
+                  <img src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/bb8e0cfa92f25a8095d1d869acc256f30bdf4af99020bfbe4e92f41bf9313221?apiKey=334f6edcddf34783bae13f34603f9f9c&" alt="Josh Smith profile picture" class="  object-contain shrink-0 w-20 rounded-full aspect-square" />
+                  <div class="flex flex-col my-auto">
+                    <div class="text-xl font-semibold">Josh Smith</div>
+                    <div class="mt-3 text-sm">Manager of The New York Times</div>
+                  </div>
+                </div>
+                <blockquote class="mt-7 text-xl leading-9 max-md:max-w-full">"They are have a perfect touch for make something so professional ,interest and useful for a lot of people ."</blockquote>
+              </div>
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/db041b74a327a3a41ae229453a775973ec14e734ed7984168b90f99fa60971eb?apiKey=334f6edcddf34783bae13f34603f9f9c&" alt="Rating stars" class="object-contain mt-6 w-36 max-w-full aspect-[2.06]" />
+            </div>
+          </div>
+          <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/c7bd0221115effd7575311772d34e5faca2865639ab57f86ebcd69e3937d7b31?apiKey=334f6edcddf34783bae13f34603f9f9c&" alt="Customer testimonial showcase" class=" object-contain mt-1 w-full rounded-md aspect-[1.65] max-md:mt-10 max-md:max-w-full" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="flex relative flex-col justify-center items-end px-20 py-32 mt-14 w-full leading-none min-h-[490px] max-md:px-5 max-md:pb-24 max-md:mt-10 max-md:max-w-full">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/334f6edcddf34783bae13f34603f9f9c/2c8ab55b44cc243f0e97bbb985be5daf12a09429498f080275bd064ab4ba289e?apiKey=334f6edcddf34783bae13f34603f9f9c&" alt="" class="object-cover absolute inset-0 size-full" aria-hidden="true" />
+      <div class="flex relative flex-col items-start -mb-7 max-w-full w-[558px] max-md:mb-2.5">
+        <h2 class="text-4xl font-semibold text-white leading-[54px]">Get more discount<br />Off your order</h2>
+        <p class="mt-5 text-xl text-white">Join our mailing list</p>
+        <form class="flex flex-wrap gap-6 self-stretch mt-10 max-md:max-w-full">
+          <label for="emailInput" class="sr-only">Your email address</label>
+          <input type="email" id="emailInput" class="grow px-6 py-6 text-base bg-white rounded-lg text-zinc-800 w-fit max-md:px-5" placeholder="Your email address" required aria-label="Your email address" />
+          <button type="submit" class="px-7 py-5 text-xl font-semibold text-white rounded-lg bg-zinc-800 max-md:px-5">Shop Now</button>
+        </form>
+      </div>
+    </section>
+    <footer class="flex flex-col text-white " role="contentinfo" aria-label="Footer">
+      <div class="flex flex-col items-center pb-16 pt-14 w-full bg-zinc-800 max-md:max-w-full">
+        <div class="flex flex-wrap gap-5 justify-between w-full whitespace-nowrap max-w-[1140px] max-md:max-w-full">
+          <div class="my-auto text-2xl font-bold tracking-normal">FurniShop</div>
+          <nav class="flex gap-4 text-sm text-center" aria-label="Social Media Links">
+            <a href="#" class="px-4 w-12 h-12 bg-indigo-500 bg-blend-normal rounded-[2000px] flex items-center justify-center hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" aria-label="Twitter">
+              <img class="w-full" src="https://i.postimg.cc/dtC5Vp2n/facebook-1.png"  alt="">
+            </a>
+            <a href="#" class="px-4 w-12 h-12 bg-indigo-500 bg-blend-normal rounded-[2000px] flex items-center justify-center hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" aria-label="Github">
+              <img class="w-full" src="https://i.postimg.cc/vZLXWnSV/github.png"  alt="">
+            </a>
+            <a href="#" class="px-4 w-12 h-12 bg-indigo-500 bg-blend-normal rounded-[2000px] flex items-center justify-center hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" aria-label="Github">
+              <img class="w-full" src="https://i.postimg.cc/FHQDdpGv/twitter.png"  alt="">
+            </a>
+          </nav>
+        </div>
+        <div class="flex shrink-0 mt-12 max-w-full h-px bg-slate-200 w-[1140px] max-md:mt-10" role="separator"></div>
+        <div class="flex flex-wrap gap-5 justify-between mt-16 w-full max-w-[1140px] max-md:mt-10 max-md:max-w-full">
+          <nav class="flex flex-col" aria-label="Our Products">
+            <h2 class="text-lg max-md:mr-2.5">Our Products</h2>
+            <ul class="mt-6 text-sm leading-5 space-y-6">
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">The Support Suite</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">The Sales Suite</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Support</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Guide</a></li>
+            </ul>
+          </nav>
+          <nav class="flex flex-col" aria-label="Top Features">
+            <h2 class="self-start text-lg font-medium">Top Features</h2>
+            <ul class="mt-6 text-sm leading-5 space-y-6">
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Ticketing System</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Knowledge Base</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Community Forums</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Help Desk Software</a></li>
+            </ul>
+          </nav>
+          <nav class="flex flex-col" aria-label="Resources">
+            <h2 class="self-start text-lg">Resources</h2>
+            <ul class="mt-6 text-sm leading-5 space-y-6">
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Product Support</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Request Demo</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Library</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Peoplepower Blog</a></li>
+            </ul>
+          </nav>
+          <nav class="flex flex-col" aria-label="Company">
+            <h2 class="text-lg">Company</h2>
+            <ul class="self-start mt-6 text-sm leading-5 space-y-6">
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">About Us</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Press</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Investors</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Events</a></li>
+            </ul>
+          </nav>
+          <!-- <nav class="flex flex-col" aria-label="Favourite Things">
+            <h2 class="text-lg font-medium">Favourite Things</h2>
+            <ul class="mt-6 text-sm leading-5 space-y-6">
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">For Enterprise</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">For Startups</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">For Benchmark</a></li>
+              <li><a href="#" class="hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">For Small Business</a></li>
+            </ul>
+          </nav>
+        </div> -->
+        <div class="self-stretch px-16 py-5 mt-12 w-full text-sm leading-none text-center bg-zinc-800 max-md:px-5 max-md:mt-10 max-md:max-w-full">
+          © NameBrand 2022 - All Rights Reserved
+        </div>
+      </div>
+    </footer>
